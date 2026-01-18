@@ -37,10 +37,12 @@ GeoIP CSV → **Sentinel Watchlist** → **KQL Enrichment (ipv4_lookup)** → **
 ## Sample KQL Queries
 
 ### 1) Failed Logons (Event ID 4625)
-  kql
-    SecurityEvent
-    | where EventID == 4625
-    | order by TimeGenerated desc
+```kql
+SecurityEvent
+| where EventId == 4625
+| order by TimeGenerated desc
+```
+
 
 ###  2) GeoIP Enrichment via Watchlist
   kql
