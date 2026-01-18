@@ -45,11 +45,12 @@ SecurityEvent
 
 
 ###  2) GeoIP Enrichment via Watchlist
-  kql
+```kql
     let GeoIPDB_FULL = _GetWatchlist("geoip");
     SecurityEvent
     | where EventID == 4625
     | evaluate ipv4_lookup(GeoIPDB_FULL, IpAddress, network)
     | project TimeGenerated, Account, IpAddress, cityname, countryname, latitude, longitude
     | order by TimeGenerated desc
+```
   
