@@ -52,6 +52,6 @@ SecurityEvent
 
 ## Screenshots
 
-### 1) Failed Logons (Event ID 4625)![](images/LAW_soc.png)
-![SIEM Geolocation Map](images/SIEM_map.png)
+### 1)Log Analytics Dashboard ![](images/LAW_soc.png)
+### 2)SIEM Geolocation Map ![](images/SIEM_map.png)
 
