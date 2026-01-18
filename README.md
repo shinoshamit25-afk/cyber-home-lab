@@ -52,3 +52,6 @@ SecurityEvent
 
 ## Screenshots
 
+![Log Analytics Dashboard](LAW_soc.png)
+![SIEM Geolocation Map](images/SIEM_map.png)
+
