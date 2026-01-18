@@ -11,10 +11,6 @@ This project deploys a **Windows VM honeypot in Azure**, forwards logs to a **Lo
 - Build confidence writing KQL queries for detection and analysis
 - Enrich raw events with contextual data (GeoIP) for better visibility
 
-## Architecture
-**Azure VM (Windows 11 pro)** → **Windows Security Events (AMA)** → **Log Analytics Workspace (LAW)** → **Microsoft Sentinel**  
-GeoIP CSV → **Sentinel Watchlist** → **KQL Enrichment (ipv4_lookup)** → **Sentinel Workbook Attack Map**
-
 ## Tech Stack
 - **Azure Virtual Machine (Windows 11 pro)**
 - **Network Security Group (NSG)**
@@ -26,12 +22,12 @@ GeoIP CSV → **Sentinel Watchlist** → **KQL Enrichment (ipv4_lookup)** → **
 - **Sentinel Workbooks (Attack map visualisation)**
 
 ## Key Steps Completed
-1. Created an Azure subscription and deployed a Windows 10 VM (honeypot).
+1. Created an Azure subscription and deployed a Windows 11 pro VM (honeypot).
 2. Configured NSG inbound rule to allow inbound traffic (honeypot exposure for log generation).
 3. Generated failed authentication events (Event ID **4625**) using test login attempts.
-4. Forwarded Windows security events into a Log Analytics Workspace via AMA connector + DCR.
+4. Forwarded Windows security events into a Log Analytics Workspace.
 5. Queried logs in LAW/Sentinel using KQL to validate event flow and investigate activity.
-6. Imported a GeoIP CSV as a Sentinel watchlist and enriched logs via `ipv4_lookup`.
+6. Imported GeoIP CSV as a Sentinel watchlist and enriched logs via `ipv4_lookup`.
 7. Built a Sentinel Workbook that visualises failed logins by geographic source (attack map).
 
 ## Sample KQL Queries
@@ -53,4 +49,6 @@ SecurityEvent
     | project TimeGenerated, Account, IpAddress, cityname, countryname, latitude, longitude
     | order by TimeGenerated desc
 ```
-  
+
+## Screenshots
+
